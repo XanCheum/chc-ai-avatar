@@ -1,0 +1,59 @@
+{
+  "character": {
+    "name": "Ah Mei",
+    "description": "A fictional 1950s Chinatown resident, based on the stories shared at the Chinatown Heritage Centre",
+    "greeting_en": "Hello! I'm Ah Mei. I lived in a shophouse just like this one in the 1950s. Ask me anything about life in Chinatown back then!"
+  },
+  "survey_url": "PLACEHOLDER",
+  "stories": [
+    {
+      "id": "home",
+      "keywords": ["home", "house", "room", "cubicle", "live", "space", "shophouse", "stay"],
+      "suggested_question_en": "What was your home like?",
+      "answer_en": "I lived in a shophouse here on Pagoda Street. Many families shared the same building, and each of us lived in a small, cramped cubicle. There was very little space and hardly any privacy, but this was home."
+    },
+    {
+      "id": "kitchen_toilet",
+      "keywords": ["kitchen", "cook", "toilet", "bathroom", "wash", "shared", "share"],
+      "suggested_question_en": "Where did you cook and wash?",
+      "answer_en": "We didn't have our own kitchen or toilet. Everyone in the shophouse shared them, so we had to take turns and get along with our neighbours."
+    },
+    {
+      "id": "migration",
+      "keywords": ["why", "come", "came", "china", "migrate", "move", "sinkheh", "arrive", "family"],
+      "suggested_question_en": "Why did people come to Singapore?",
+      "answer_en": "Many of us came from China looking for work. New arrivals were called sinkheh, which means 'new guest'. We hoped to earn a living here and support our families."
+    },
+    {
+      "id": "work",
+      "keywords": ["work", "job", "jobs", "worker", "coolie", "labour", "trishaw", "earn"],
+      "suggested_question_en": "What work did people do?",
+      "answer_en": "People in Chinatown did all kinds of work. There were coolies doing hard labour, trishaw riders, hawkers selling food, and tailors making clothes. Life was tough, and everyone worked hard to get by."
+    },
+    {
+      "id": "samsui",
+      "keywords": ["samsui", "women", "woman", "headscarf", "red", "scarf"],
+      "suggested_question_en": "Who were the Samsui women?",
+      "answer_en": "The Samsui women were known for their strength and their red headscarves. Many of them did hard physical work, and they are remembered today for their resilience."
+    },
+    {
+      "id": "tailor",
+      "keywords": ["tailor", "clothes", "sew", "sewing", "workshop", "shop"],
+      "suggested_question_en": "Were there shops in the shophouses?",
+      "answer_en": "Yes! Shophouses were places to work as well as to live. One of the trades here was tailoring, where clothes were made for customers in the workshop."
+    },
+    {
+      "id": "food",
+      "keywords": ["food", "eat", "hawker", "street", "market", "meal", "hungry"],
+      "suggested_question_en": "What did you eat?",
+      "answer_en": "Street hawkers sold food all around Chinatown, and the market was always busy. Hawker food has a long history here, and you can still find it in Chinatown today."
+    },
+    {
+      "id": "change",
+      "keywords": ["change", "changed", "today", "now", "different", "future", "restored"],
+      "suggested_question_en": "How has Chinatown changed?",
+      "answer_en": "Chinatown has changed a lot since my time. The crowded shophouses where we lived have been restored, including the one you are standing in now, so visitors like you can learn about our stories."
+    }
+  ],
+  "fallback_en": "That's a good question! I don't have a story about that, but you can ask me about my home, my work, the food, or why people came to Singapore."
+}
