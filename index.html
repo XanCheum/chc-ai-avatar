@@ -29,68 +29,36 @@
        ============================================================ -->
   <section id="chat-screen" class="screen chat-screen" hidden>
 
-    <!-- Top bar: avatar + controls -->
+    <!-- Top bar: avatar media frame + controls -->
     <header class="chat-header">
-      <!-- Avatar: a 2D character drawn entirely with SVG.
-           Animations (blinking, mouth movement) are driven by
-           CSS classes toggled from app.js. -->
-      <div id="avatar" class="avatar" aria-hidden="true">
-        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ah Ying, a Samsui woman wearing her iconic square red headscarf">
-          <!-- Samfu-style working top (dark blue/black, as worn by Samsui women) -->
-          <path class="clothing" d="M40 220 Q40 170 100 165 Q160 170 160 220 Z" />
-          <path class="collar" d="M80 168 Q100 190 120 168 L112 165 Q100 178 88 165 Z" />
+      <!-- Avatar media frame. Shows a photo by default; plays videos
+           (greeting / per-story / fallback) in the same box when they
+           are available. When a video is missing or fails to load the
+           code falls back to the photo + browser text-to-speech, with
+           a gentle breathing zoom and animated sound bars.
+           Animation is driven by the .speaking class toggled from app.js. -->
+      <div class="avatar-wrap">
+        <div id="avatar" class="avatar">
+          <!-- Default photo. alt text is refined from the character name by app.js. -->
+          <img id="avatar-photo" class="avatar-photo" src="content/ah-ying.jpg"
+               alt="Ah Ying, a Samsui woman" />
 
-          <!-- Neck -->
-          <rect class="skin" x="88" y="140" width="24" height="30" rx="10" />
+          <!-- Video layer. playsinline keeps it inline on iPhone Safari.
+               No autoplay: playback is started from JS after the Start tap
+               so sound is not blocked. Hidden until a video actually plays. -->
+          <video id="avatar-video" class="avatar-video" playsinline webkit-playsinline
+                 preload="auto" hidden></video>
 
-          <!-- Hair showing beneath the headscarf, framing the face -->
-          <path class="hair-back" d="M48 108 Q48 150 60 158 L60 112 L140 112 L140 158 Q152 150 152 108 Z" />
+          <!-- Animated sound bars, shown only while TTS is speaking. -->
+          <div id="sound-bars" class="sound-bars" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
 
-          <!-- Face -->
-          <ellipse class="skin face" cx="100" cy="104" rx="50" ry="54" />
-
-          <!-- Rosy cheeks -->
-          <circle class="cheek" cx="70" cy="116" r="9" />
-          <circle class="cheek" cx="130" cy="116" r="9" />
-
-          <!-- Eyebrows -->
-          <path class="brow" d="M62 84 Q76 76 90 84" />
-          <path class="brow" d="M110 84 Q124 76 138 84" />
-
-          <!-- Eyes. The .eye-lid rectangles drop down to blink. -->
-          <g class="eye">
-            <circle class="eye-white" cx="76" cy="98" r="10" />
-            <circle class="pupil" cx="76" cy="98" r="4.5" />
-            <rect class="eye-lid" x="65" y="86" width="22" height="0" rx="4" />
-          </g>
-          <g class="eye">
-            <circle class="eye-white" cx="124" cy="98" r="10" />
-            <circle class="pupil" cx="124" cy="98" r="4.5" />
-            <rect class="eye-lid" x="113" y="86" width="22" height="0" rx="4" />
-          </g>
-
-          <!-- Nose -->
-          <path class="nose" d="M100 106 Q96 122 100 126 Q104 122 100 126" />
-
-          <!-- Mouth. The #avatar.speaking class animates its height. -->
-          <ellipse id="mouth" class="mouth" cx="100" cy="142" rx="15" ry="4" />
-
-          <!-- ============================================================
-               SAMSUI HEADSCARF (hong tou jin): the iconic square,
-               flat-topped RED head covering. Drawn as a folded cloth
-               sitting squarely on top of the head, flat across the top,
-               draping down the sides past the ears.
-               ============================================================ -->
-          <!-- Back/side drape of the scarf behind the head -->
-          <path class="scarf-back" d="M44 70 L156 70 L156 128 Q150 118 140 116 L140 86 L60 86 L60 116 Q50 118 44 128 Z" />
-          <!-- The flat-topped folded square cloth on the crown -->
-          <path class="scarf" d="M46 72 L154 72 L154 92 Q150 86 140 86 L60 86 Q50 86 46 92 Z" />
-          <!-- Flat top edge highlight to emphasise the square, flat top -->
-          <rect class="scarf-top" x="46" y="60" width="108" height="16" rx="3" />
-          <!-- Fold lines across the folded cloth -->
-          <path class="scarf-fold" d="M58 68 L142 68" />
-          <path class="scarf-fold" d="M54 74 L146 74" />
-        </svg>
+          <!-- On-screen subtitles for the current greeting/answer text. -->
+          <div id="avatar-subtitle" class="avatar-subtitle" aria-live="polite"></div>
+        </div>
+        <!-- Required disclosure that the character is AI-generated. -->
+        <p class="media-caption">AI-generated character (fictional)</p>
       </div>
 
       <div class="header-controls">
