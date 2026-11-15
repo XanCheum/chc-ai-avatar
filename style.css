@@ -157,10 +157,9 @@ body {
 /* SVG part colours */
 .skin        { fill: #f2c9a0; }
 .face        { fill: #f6d3af; }
-.hair-back,
-.hair-front  { fill: #2b211c; }
-.clothing    { fill: var(--red); }
-.collar      { fill: var(--cream); }
+.hair-back   { fill: #2b211c; }
+.clothing    { fill: #2f3a4a; }   /* dark indigo samfu working top */
+.collar      { fill: #26303d; }
 .cheek       { fill: #eaa98a; opacity: 0.6; }
 .brow        { fill: none; stroke: #2b211c; stroke-width: 4; stroke-linecap: round; }
 .eye-white   { fill: #fff; stroke: #2b211c; stroke-width: 1.5; }
@@ -168,8 +167,12 @@ body {
 .eye-lid     { fill: #f6d3af; }
 .nose        { fill: none; stroke: #d2a07a; stroke-width: 3; stroke-linecap: round; }
 .mouth       { fill: #7d2b2b; }
-.flower      { fill: var(--gold); }
-.flower-center { fill: var(--red); }
+
+/* Samsui red headscarf (hong tou jin) */
+.scarf       { fill: var(--red); }
+.scarf-back  { fill: var(--red-dark); }
+.scarf-top   { fill: var(--red); stroke: var(--red-dark); stroke-width: 1.5; }
+.scarf-fold  { fill: none; stroke: var(--red-dark); stroke-width: 2; stroke-linecap: round; opacity: 0.7; }
 
 /* Blink: the lids drop to cover the eyes.
    app.js adds .blinking briefly every few seconds. */

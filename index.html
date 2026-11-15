@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <!-- Mobile-first: scale to device width, allow the visitor to zoom -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meet Ah Mei – Chinatown Heritage Centre</title>
-  <meta name="description" content="Talk to Ah Mei, a fictional 1950s Chinatown resident. A prototype storyteller for the Chinatown Heritage Centre." />
+  <title>Meet Ah Ying – Chinatown Heritage Centre</title>
+  <meta name="description" content="Talk to Ah Ying, a fictional Samsui woman from old Chinatown. A prototype storyteller for the Chinatown Heritage Centre." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,8 +16,8 @@
        until the user interacts with the page).
        ============================================================ -->
   <section id="start-screen" class="screen start-screen">
-    <h1 class="title">Meet Ah Mei</h1>
-    <p class="subtitle">Talk to a 1950s Chinatown resident</p>
+    <h1 id="start-title" class="title">Meet Ah Ying</h1>
+    <p id="start-subtitle" class="subtitle">Talk to a Samsui woman from old Chinatown</p>
     <button id="start-btn" class="btn btn-primary btn-large" type="button">Start</button>
     <p class="disclaimer">Prototype – fictional character based on CHC stories</p>
   </section>
@@ -35,51 +35,61 @@
            Animations (blinking, mouth movement) are driven by
            CSS classes toggled from app.js. -->
       <div id="avatar" class="avatar" aria-hidden="true">
-        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ah Mei, a friendly 1950s Chinatown resident">
-          <!-- Simple 1950s clothing (a samfu-style top) -->
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ah Ying, a Samsui woman wearing her iconic square red headscarf">
+          <!-- Samfu-style working top (dark blue/black, as worn by Samsui women) -->
           <path class="clothing" d="M40 220 Q40 170 100 165 Q160 170 160 220 Z" />
           <path class="collar" d="M80 168 Q100 190 120 168 L112 165 Q100 178 88 165 Z" />
 
           <!-- Neck -->
           <rect class="skin" x="88" y="140" width="24" height="30" rx="10" />
 
-          <!-- Hair behind the face -->
-          <path class="hair-back" d="M44 100 Q44 44 100 40 Q156 44 156 100 L156 150 Q140 128 140 108 L60 108 Q60 128 44 150 Z" />
+          <!-- Hair showing beneath the headscarf, framing the face -->
+          <path class="hair-back" d="M48 108 Q48 150 60 158 L60 112 L140 112 L140 158 Q152 150 152 108 Z" />
 
           <!-- Face -->
-          <ellipse class="skin face" cx="100" cy="100" rx="52" ry="58" />
+          <ellipse class="skin face" cx="100" cy="104" rx="50" ry="54" />
 
           <!-- Rosy cheeks -->
-          <circle class="cheek" cx="68" cy="112" r="9" />
-          <circle class="cheek" cx="132" cy="112" r="9" />
+          <circle class="cheek" cx="70" cy="116" r="9" />
+          <circle class="cheek" cx="130" cy="116" r="9" />
 
           <!-- Eyebrows -->
-          <path class="brow" d="M60 78 Q74 70 88 78" />
-          <path class="brow" d="M112 78 Q126 70 140 78" />
+          <path class="brow" d="M62 84 Q76 76 90 84" />
+          <path class="brow" d="M110 84 Q124 76 138 84" />
 
           <!-- Eyes. The .eye-lid rectangles drop down to blink. -->
           <g class="eye">
-            <circle class="eye-white" cx="74" cy="92" r="10" />
-            <circle class="pupil" cx="74" cy="92" r="4.5" />
-            <rect class="eye-lid" x="63" y="80" width="22" height="0" rx="4" />
+            <circle class="eye-white" cx="76" cy="98" r="10" />
+            <circle class="pupil" cx="76" cy="98" r="4.5" />
+            <rect class="eye-lid" x="65" y="86" width="22" height="0" rx="4" />
           </g>
           <g class="eye">
-            <circle class="eye-white" cx="126" cy="92" r="10" />
-            <circle class="pupil" cx="126" cy="92" r="4.5" />
-            <rect class="eye-lid" x="115" y="80" width="22" height="0" rx="4" />
+            <circle class="eye-white" cx="124" cy="98" r="10" />
+            <circle class="pupil" cx="124" cy="98" r="4.5" />
+            <rect class="eye-lid" x="113" y="86" width="22" height="0" rx="4" />
           </g>
 
           <!-- Nose -->
-          <path class="nose" d="M100 100 Q96 116 100 120 Q104 116 100 120" />
+          <path class="nose" d="M100 106 Q96 122 100 126 Q104 122 100 126" />
 
           <!-- Mouth. The #avatar.speaking class animates its height. -->
-          <ellipse id="mouth" class="mouth" cx="100" cy="136" rx="16" ry="4" />
+          <ellipse id="mouth" class="mouth" cx="100" cy="142" rx="15" ry="4" />
 
-          <!-- Hair front / fringe -->
-          <path class="hair-front" d="M48 96 Q50 46 100 42 Q150 46 152 96 Q140 72 118 70 Q110 58 100 70 Q90 58 82 70 Q60 72 48 96 Z" />
-          <!-- A small flower hair accessory -->
-          <circle class="flower" cx="138" cy="66" r="7" />
-          <circle class="flower-center" cx="138" cy="66" r="3" />
+          <!-- ============================================================
+               SAMSUI HEADSCARF (hong tou jin): the iconic square,
+               flat-topped RED head covering. Drawn as a folded cloth
+               sitting squarely on top of the head, flat across the top,
+               draping down the sides past the ears.
+               ============================================================ -->
+          <!-- Back/side drape of the scarf behind the head -->
+          <path class="scarf-back" d="M44 70 L156 70 L156 128 Q150 118 140 116 L140 86 L60 86 L60 116 Q50 118 44 128 Z" />
+          <!-- The flat-topped folded square cloth on the crown -->
+          <path class="scarf" d="M46 72 L154 72 L154 92 Q150 86 140 86 L60 86 Q50 86 46 92 Z" />
+          <!-- Flat top edge highlight to emphasise the square, flat top -->
+          <rect class="scarf-top" x="46" y="60" width="108" height="16" rx="3" />
+          <!-- Fold lines across the folded cloth -->
+          <path class="scarf-fold" d="M58 68 L142 68" />
+          <path class="scarf-fold" d="M54 74 L146 74" />
         </svg>
       </div>
 
@@ -92,7 +102,7 @@
     </header>
 
     <!-- Chat history: visitor and avatar bubbles are appended here -->
-    <main id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversation with Ah Mei"></main>
+    <main id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversation with Ah Ying"></main>
 
     <!-- Question controls -->
     <div class="controls">
