@@ -5,7 +5,7 @@
   <!-- Mobile-first: scale to device width, allow the visitor to zoom -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meet Ah Ying – Chinatown Heritage Centre</title>
-  <meta name="description" content="Talk to Ah Ying, a fictional Samsui woman from old Chinatown. A prototype storyteller for the Chinatown Heritage Centre." />
+  <meta name="description" content="Talk to a fictional Samsui woman from old Chinatown. A prototype storyteller for the Chinatown Heritage Centre." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -54,8 +54,11 @@
             <span></span><span></span><span></span><span></span><span></span>
           </div>
 
-          <!-- On-screen subtitles for the current greeting/answer text. -->
-          <div id="avatar-subtitle" class="avatar-subtitle" aria-live="polite"></div>
+          <!-- On-screen subtitles for the current greeting/answer text.
+               aria-hidden: the same text is already announced by the chat
+               log (an aria-live region), so this visual caption stays silent
+               to avoid duplicate screen-reader announcements. -->
+          <div id="avatar-subtitle" class="avatar-subtitle" aria-hidden="true"></div>
         </div>
         <!-- Required disclosure that the character is AI-generated. -->
         <p class="media-caption">AI-generated character (fictional)</p>
@@ -70,7 +73,7 @@
     </header>
 
     <!-- Chat history: visitor and avatar bubbles are appended here -->
-    <main id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversation with Ah Ying"></main>
+    <main id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversation with the character"></main>
 
     <!-- Question controls -->
     <div class="controls">

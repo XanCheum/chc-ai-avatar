@@ -20,7 +20,6 @@
   var avatar      = document.getElementById("avatar");
   var avatarPhoto = document.getElementById("avatar-photo");
   var avatarVideo = document.getElementById("avatar-video");
-  var soundBars   = document.getElementById("sound-bars");
   var subtitleEl  = document.getElementById("avatar-subtitle");
   var chatLog     = document.getElementById("chat-log");
   var suggestions = document.getElementById("suggestions");
@@ -117,8 +116,10 @@
       utter.pitch = 1.05;
       // Breathing-zoom + sound bars while speaking (photo fallback path).
       utter.onstart = function () { setSpeakingState(true); };
-      utter.onend   = function () { setSpeakingState(false); };
-      utter.onerror = function () { setSpeakingState(false); };
+      // When speech finishes (or errors) we are back to the idle photo, so
+      // stop the breathing-zoom / sound bars and clear the on-screen subtitle.
+      utter.onend   = function () { setSpeakingState(false); setSubtitle(""); };
+      utter.onerror = function () { setSpeakingState(false); setSubtitle(""); };
       synth.speak(utter);
     } catch (e) {
       // If speech fails we still showed the text, so continue quietly.
@@ -134,10 +135,17 @@
     if (muted) {
       muteBtn.textContent = "🔇 Sound off";
       muteBtn.setAttribute("aria-label", "Unmute speech");
+      // Stop TTS (there is no silent TTS), but leave any playing video
+      // running: setting avatarVideo.muted above already silenced it, so
+      // the visitor keeps watching the clip without sound. When TTS was
+      // the active path, cancelling it means nothing is "speaking", so
+      // drop the breathing-zoom / sound bars and clear the subtitle.
       if (synth) synth.cancel();
-      setSpeakingState(false);
-      // Stop any playing video and return to the still photo.
-      showPhoto();
+      if (avatarVideo && avatarVideo.hidden) {
+        // Photo + TTS path was active: no video to keep, so reset to idle.
+        setSpeakingState(false);
+        setSubtitle("");
+      }
     } else {
       muteBtn.textContent = "🔊 Sound on";
       muteBtn.setAttribute("aria-label", "Mute speech");
@@ -240,9 +248,12 @@
       avatarVideo.addEventListener("error", onFail);
       avatarVideo.addEventListener("stalled", onFail);
 
-      // When the clip ends, return to the still photo.
+      // When the clip ends, return to the still photo and clear the
+      // subtitle so the last answer does not stay overlaid on the idle photo.
       avatarVideo.onended = function () {
-        if (isCurrent()) showPhoto();
+        if (!isCurrent()) return;
+        showPhoto();
+        setSubtitle("");
       };
 
       // Audio only after the Start tap unlocked it; honour mute state.
