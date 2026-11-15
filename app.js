@@ -6,7 +6,7 @@
    shows the conversation as chat bubbles.
 
    Non-programmers: you normally do NOT need to edit this file.
-   To change what Ah Mei says, edit content/stories.json instead.
+   To change what the character says, edit content/stories.json instead.
    ============================================================ */
 
 (function () {
@@ -16,6 +16,7 @@
   var startScreen = document.getElementById("start-screen");
   var chatScreen  = document.getElementById("chat-screen");
   var startBtn    = document.getElementById("start-btn");
+  var startTitle  = document.getElementById("start-title");
   var avatar      = document.getElementById("avatar");
   var chatLog     = document.getElementById("chat-log");
   var suggestions = document.getElementById("suggestions");
@@ -310,6 +311,12 @@
   function init() {
     loadContent()
       .then(function () {
+        // Start-screen title uses the character's name from stories.json.
+        var charName = (content.character && content.character.name) || "";
+        if (startTitle && charName) {
+          startTitle.textContent = "Meet " + charName;
+          document.title = "Meet " + charName + " – Chinatown Heritage Centre";
+        }
         buildSuggestions();
         setupSurvey();
         setupMic();
@@ -330,7 +337,7 @@
       .catch(function (err) {
         // Show a clear message if content failed to load.
         startScreen.innerHTML =
-          '<h1 class="title">Meet Ah Mei</h1>' +
+          '<h1 class="title">Meet Ah Ying</h1>' +
           '<p class="subtitle">Sorry, the stories could not be loaded.</p>' +
           '<p class="disclaimer">' + String(err.message || err) + '</p>' +
           '<p class="disclaimer">If you are opening this file directly, run it from a web ' +
