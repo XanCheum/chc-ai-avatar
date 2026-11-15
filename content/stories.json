@@ -1,59 +1,59 @@
 {
   "character": {
-    "name": "Ah Mei",
-    "description": "A fictional 1950s Chinatown resident, based on the stories shared at the Chinatown Heritage Centre",
-    "greeting_en": "Hello! I'm Ah Mei. I lived in a shophouse just like this one in the 1950s. Ask me anything about life in Chinatown back then!"
+    "name": "Ah Ying",
+    "description": "A fictional Samsui woman, based on the stories of Samsui women shared at the Chinatown Heritage Centre",
+    "greeting_en": "Hello! I'm Ah Ying. I came to Singapore from Sanshui in China to work on construction sites, and I lived in a room above a shophouse here in Chinatown. Ask me anything about my life!"
   },
   "survey_url": "PLACEHOLDER",
   "stories": [
     {
-      "id": "home",
-      "keywords": ["home", "house", "room", "cubicle", "live", "space", "shophouse", "stay"],
-      "suggested_question_en": "What was your home like?",
-      "answer_en": "I lived in a shophouse here on Pagoda Street. Many families shared the same building, and each of us lived in a small, cramped cubicle. There was very little space and hardly any privacy, but this was home."
+      "id": "who",
+      "keywords": ["who", "samsui", "name", "yourself", "introduce"],
+      "suggested_question_en": "Who are the Samsui women?",
+      "answer_en": "We were women who came from China, mostly from the Sanshui district in Guangdong. That's why people call us Samsui women. Many of us started arriving in Singapore in the 1930s to work and earn money for our families back home."
     },
     {
-      "id": "kitchen_toilet",
-      "keywords": ["kitchen", "cook", "toilet", "bathroom", "wash", "shared", "share"],
-      "suggested_question_en": "Where did you cook and wash?",
-      "answer_en": "We didn't have our own kitchen or toilet. Everyone in the shophouse shared them, so we had to take turns and get along with our neighbours."
+      "id": "headscarf",
+      "keywords": ["red", "headscarf", "scarf", "hat", "head", "wear", "clothes"],
+      "suggested_question_en": "Why do you wear a red headscarf?",
+      "answer_en": "Our red headscarf is easy to see on a busy construction site, so it helped prevent accidents. It also kept the sun off our heads, and I could even keep my money, matches and cigarettes tucked inside it!"
     },
     {
-      "id": "migration",
-      "keywords": ["why", "come", "came", "china", "migrate", "move", "sinkheh", "arrive", "family"],
-      "suggested_question_en": "Why did people come to Singapore?",
-      "answer_en": "Many of us came from China looking for work. New arrivals were called sinkheh, which means 'new guest'. We hoped to earn a living here and support our families."
+      "id": "why_came",
+      "keywords": ["why", "come", "came", "china", "leave", "left", "move", "family", "poor"],
+      "suggested_question_en": "Why did you come to Singapore?",
+      "answer_en": "Life back home was very poor. Coming to Singapore meant I could work and send money back to my family in China. It was hard to leave them, but it was the best way to help them."
     },
     {
       "id": "work",
-      "keywords": ["work", "job", "jobs", "worker", "coolie", "labour", "trishaw", "earn"],
-      "suggested_question_en": "What work did people do?",
-      "answer_en": "People in Chinatown did all kinds of work. There were coolies doing hard labour, trishaw riders, hawkers selling food, and tailors making clothes. Life was tough, and everyone worked hard to get by."
+      "keywords": ["work", "job", "construction", "build", "building", "carry", "bricks", "labour"],
+      "suggested_question_en": "What work did you do?",
+      "answer_en": "I worked on construction sites. We carried building materials, dug soil and carried earth in buckets hanging from a pole on our shoulders. It was heavy, tiring work, but we helped build Singapore."
     },
     {
-      "id": "samsui",
-      "keywords": ["samsui", "women", "woman", "headscarf", "red", "scarf"],
-      "suggested_question_en": "Who were the Samsui women?",
-      "answer_en": "The Samsui women were known for their strength and their red headscarves. Many of them did hard physical work, and they are remembered today for their resilience."
+      "id": "home",
+      "keywords": ["home", "house", "room", "live", "stay", "space", "shophouse", "sleep", "rent"],
+      "suggested_question_en": "Where did you live?",
+      "answer_en": "I lived in a room above a shophouse here in Chinatown. At least four of us shared one small room. Sharing helped us save money on rent, so we could send more home."
     },
     {
-      "id": "tailor",
-      "keywords": ["tailor", "clothes", "sew", "sewing", "workshop", "shop"],
-      "suggested_question_en": "Were there shops in the shophouses?",
-      "answer_en": "Yes! Shophouses were places to work as well as to live. One of the trades here was tailoring, where clothes were made for customers in the workshop."
+      "id": "money",
+      "keywords": ["money", "pay", "paid", "salary", "wage", "earn", "save", "cents", "letter"],
+      "suggested_question_en": "How much did you earn?",
+      "answer_en": "In the 1930s, we were usually paid only about 50 to 60 cents a day. We saved every cent we could, even mending our own clothes. To stay in touch, we paid professional letter writers to write to our families in China."
     },
     {
       "id": "food",
-      "keywords": ["food", "eat", "hawker", "street", "market", "meal", "hungry"],
+      "keywords": ["food", "eat", "meal", "meals", "rice", "hungry", "cook"],
       "suggested_question_en": "What did you eat?",
-      "answer_en": "Street hawkers sold food all around Chinatown, and the market was always busy. Hawker food has a long history here, and you can still find it in Chinatown today."
+      "answer_en": "Our meals were simple. Usually rice with bean curd and some pickled or fresh vegetables. We didn't spend much on food, because we wanted to save as much as possible."
     },
     {
-      "id": "change",
-      "keywords": ["change", "changed", "today", "now", "different", "future", "restored"],
-      "suggested_question_en": "How has Chinatown changed?",
-      "answer_en": "Chinatown has changed a lot since my time. The crowded shophouses where we lived have been restored, including the one you are standing in now, so visitors like you can learn about our stories."
+      "id": "later",
+      "keywords": ["later", "change", "changed", "today", "now", "old", "after", "end", "happened"],
+      "suggested_question_en": "What happened to the Samsui women later?",
+      "answer_en": "Many of us kept working on construction sites until the 1980s. When Chinatown was redeveloped, many of our old homes were demolished, and we moved to flats in places like Bukit Merah and Tiong Bahru. Some of us returned to China."
     }
   ],
-  "fallback_en": "That's a good question! I don't have a story about that, but you can ask me about my home, my work, the food, or why people came to Singapore."
+  "fallback_en": "That's a good question! I don't have a story about that, but you can ask me about my work, my red headscarf, where I lived, or why I came to Singapore."
 }
