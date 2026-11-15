@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Mobile-first: scale to device width, allow the visitor to zoom -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Ah Mei – Chinatown Heritage Centre</title>
+  <meta name="description" content="Talk to Ah Mei, a fictional 1950s Chinatown resident. A prototype storyteller for the Chinatown Heritage Centre." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ============================================================
+       START SCREEN
+       Shown first. The Start tap is required so that mobile
+       browsers allow speech audio to play (autoplay is blocked
+       until the user interacts with the page).
+       ============================================================ -->
+  <section id="start-screen" class="screen start-screen">
+    <h1 class="title">Meet Ah Mei</h1>
+    <p class="subtitle">Talk to a 1950s Chinatown resident</p>
+    <button id="start-btn" class="btn btn-primary btn-large" type="button">Start</button>
+    <p class="disclaimer">Prototype – fictional character based on CHC stories</p>
+  </section>
+
+  <!-- ============================================================
+       CONVERSATION SCREEN
+       Shown after the visitor taps Start. Contains the avatar,
+       the chat history, the question controls and the survey.
+       ============================================================ -->
+  <section id="chat-screen" class="screen chat-screen" hidden>
+
+    <!-- Top bar: avatar + controls -->
+    <header class="chat-header">
+      <!-- Avatar: a 2D character drawn entirely with SVG.
+           Animations (blinking, mouth movement) are driven by
+           CSS classes toggled from app.js. -->
+      <div id="avatar" class="avatar" aria-hidden="true">
+        <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ah Mei, a friendly 1950s Chinatown resident">
+          <!-- Simple 1950s clothing (a samfu-style top) -->
+          <path class="clothing" d="M40 220 Q40 170 100 165 Q160 170 160 220 Z" />
+          <path class="collar" d="M80 168 Q100 190 120 168 L112 165 Q100 178 88 165 Z" />
+
+          <!-- Neck -->
+          <rect class="skin" x="88" y="140" width="24" height="30" rx="10" />
+
+          <!-- Hair behind the face -->
+          <path class="hair-back" d="M44 100 Q44 44 100 40 Q156 44 156 100 L156 150 Q140 128 140 108 L60 108 Q60 128 44 150 Z" />
+
+          <!-- Face -->
+          <ellipse class="skin face" cx="100" cy="100" rx="52" ry="58" />
+
+          <!-- Rosy cheeks -->
+          <circle class="cheek" cx="68" cy="112" r="9" />
+          <circle class="cheek" cx="132" cy="112" r="9" />
+
+          <!-- Eyebrows -->
+          <path class="brow" d="M60 78 Q74 70 88 78" />
+          <path class="brow" d="M112 78 Q126 70 140 78" />
+
+          <!-- Eyes. The .eye-lid rectangles drop down to blink. -->
+          <g class="eye">
+            <circle class="eye-white" cx="74" cy="92" r="10" />
+            <circle class="pupil" cx="74" cy="92" r="4.5" />
+            <rect class="eye-lid" x="63" y="80" width="22" height="0" rx="4" />
+          </g>
+          <g class="eye">
+            <circle class="eye-white" cx="126" cy="92" r="10" />
+            <circle class="pupil" cx="126" cy="92" r="4.5" />
+            <rect class="eye-lid" x="115" y="80" width="22" height="0" rx="4" />
+          </g>
+
+          <!-- Nose -->
+          <path class="nose" d="M100 100 Q96 116 100 120 Q104 116 100 120" />
+
+          <!-- Mouth. The #avatar.speaking class animates its height. -->
+          <ellipse id="mouth" class="mouth" cx="100" cy="136" rx="16" ry="4" />
+
+          <!-- Hair front / fringe -->
+          <path class="hair-front" d="M48 96 Q50 46 100 42 Q150 46 152 96 Q140 72 118 70 Q110 58 100 70 Q90 58 82 70 Q60 72 48 96 Z" />
+          <!-- A small flower hair accessory -->
+          <circle class="flower" cx="138" cy="66" r="7" />
+          <circle class="flower-center" cx="138" cy="66" r="3" />
+        </svg>
+      </div>
+
+      <div class="header-controls">
+        <!-- Mute toggle. Text + aria-pressed updated from app.js. -->
+        <button id="mute-btn" class="btn btn-icon" type="button" aria-pressed="false" aria-label="Mute speech">🔊 Sound on</button>
+        <!-- Language toggle: hidden unless _zh content exists. -->
+        <button id="lang-btn" class="btn btn-icon" type="button" hidden></button>
+      </div>
+    </header>
+
+    <!-- Chat history: visitor and avatar bubbles are appended here -->
+    <main id="chat-log" class="chat-log" aria-live="polite" aria-label="Conversation with Ah Mei"></main>
+
+    <!-- Question controls -->
+    <div class="controls">
+      <!-- Suggested questions, one button per story, built in app.js -->
+      <div id="suggestions" class="suggestions" aria-label="Suggested questions"></div>
+
+      <!-- Typed question input -->
+      <form id="ask-form" class="ask-form" autocomplete="off">
+        <!-- Microphone button: hidden unless SpeechRecognition is supported -->
+        <button id="mic-btn" class="btn btn-icon" type="button" aria-label="Ask by voice" hidden>🎤</button>
+        <label class="visually-hidden" for="ask-input">Type your question</label>
+        <input id="ask-input" class="ask-input" type="text" placeholder="Type a question…" inputmode="text" />
+        <button id="send-btn" class="btn btn-primary" type="submit">Send</button>
+      </form>
+
+      <!-- Survey call to action -->
+      <button id="survey-btn" class="btn btn-secondary btn-large" type="button">Finish &amp; share feedback</button>
+      <p id="survey-msg" class="survey-msg" hidden>Survey link coming soon</p>
+    </div>
+
+    <p class="disclaimer">Prototype – fictional character based on CHC stories</p>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
